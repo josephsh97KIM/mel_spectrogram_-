@@ -8,3 +8,11 @@
 ESC-50과 같이 meta 데이터 csv로부터 파일을 나누어 저장하지만 label이 두개씩 있는 경우가 있어서 두개 생성 후 각각 해당파일이 들어가도록 생성.
 ## 2023.07.27 extract_acav2.ipynb
 - acav100m에서 제공한 20k,200k 크기의 json파일의 경로에 맞춰 youtube로부터 영상을 다운할 수 있는 코드.
+## 2023.09.26 mkaudioset.py
+- audioset downlaod code.
+- root_path : download folder path
+- labels : select class
+- download_type : 'unbalanced_train','balanced_train','eval'
+- n_jobs : the number of parallel downloads. default is 1. (use multi gpu > 1)
+- copy_and_replicate : associated to mulible class is True, If asscociated to the first class in the list is Flase.
+- format : vorbis, wav, mp3, m4a, flac, opus, webm
