@@ -16,3 +16,5 @@ ESC-50과 같이 meta 데이터 csv로부터 파일을 나누어 저장하지만
 - n_jobs : the number of parallel downloads. default is 1. (use multi gpu > 1)
 - copy_and_replicate : associated to mulible class is True, If asscociated to the first class in the list is Flase.
 - format : vorbis, wav, mp3, m4a, flac, opus, webm
+## 2023.10.13 Downloader.py
+- mkaudioset.py에서 from audioset_download improt Downloader를 통해 audioset다운로드용 라이브러리를 통해 받았는데, 해당 파일을 통해 기존의 저장된 파일경로를 저장한 csv파일을 제외하고 받고 싶을때, 이용하는 custom download code.
