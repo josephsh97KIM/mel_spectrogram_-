@@ -62,9 +62,20 @@ class Downloader:
         """
         folder = '/workspace/audioset_download2'
         csv1_path = os.path.join(folder,'New.csv')
+        csv2_path = os.path.join(folder,'exist.csv')
+        all_path = []
         with open(csv1_path, 'r') as file1:
             reader1 = csv.reader(file1)
-            csv_set = set(row[0] for row in reader1)
+            # csv_set = set(row[0] for row in reader1)
+            for row in reader1:
+                value = row[0].split('/')[-1].split('_')[0]
+                all_path.append(value)
+        with open(csv2_path, 'r') as file2:
+            reader2 = csv.reader(file2)
+            # csv_set = set(row[0] for row in reader1)
+            for row in reader2:
+                value2 = row[0].split('/')[-1].split('_')[0]
+                all_path.append(value2)
 
         self.format = format
         self.quality = quality
@@ -88,7 +99,7 @@ class Downloader:
         print(f'Downloading {len(metadata)} files...')
 
         def process_row(i):
-            if metadata.loc[i, 'YTID'] not in csv_set:
+            if metadata.loc[i, 'YTID'] not in all_path:
                 self.download_file(
                     metadata.loc[i, 'YTID'],
                     metadata.loc[i, 'start_seconds'],
